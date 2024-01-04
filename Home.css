@@ -1,9 +1,9 @@
+/* ------------------------------------ header and navbar ------------------------------------------------  */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-/* ------------------------------------ header and navbar ------------------------------------------------  */
 nav {
     /* position: fixed; */
     /* top: 0; */
@@ -64,4 +64,58 @@ nav {
 }
 .toggle .line3 {
     transform: rotate(45deg) translate(-5px, -6px);
+}
+nav img{
+    width: 130px;
+}
+.real-li{
+    display: flex;
+    justify-content: right;
+}
+/* ------------------------------------ risponsiveness for navbar---------------------------------------------- */
+
+@media screen and (max-width: 1024px) {
+    .nav-links {
+        width: 60%;
+    }
+}
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+    .nav-links {
+        position: fixed;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: #000000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+    .nav-links li {
+        opacity: 0;
+    }
+    
+    .burger {
+        display: block;
+        cursor: pointer;
+    }
+}
+.nav-active {
+        transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
