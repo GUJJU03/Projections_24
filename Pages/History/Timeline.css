@@ -151,243 +151,185 @@ nav img{
 
 /* --------------------------------------- timeline css ---------------------------------------------  */
 
-@property --scroll-y-position {
-    syntax: "<percentage>";
-    initial-value: -10%;
-    inherits: false;
+.Main-timeline {
+  padding: 80px;
+}
+
+.Timeline-main {
+  height: 100vh;
+  width: 100%;
+}
+
+.timeline {
+  color: rgb(0, 0, 0);
+  position: relative;
+  max-width: 1200px;
+  margin: 0px auto;
+}
+
+.container-time {
+  padding: 10px 50px;
+  position: relative;
+  width: 50%;
+  animation: movedown 1s linear forwards;
+  opacity: 0;
+}
+
+@keyframes movedown {
+  0% {
+      opacity: 1;
+      transform: translateY(-30px);
   }
-  @property --reflection-y-position {
-    syntax: "<percentage>";
-    initial-value: -50%;
-    inherits: false;
+
+  100% {
+      opacity: 1;
+      transform: translateY(0px);
   }
-  @property --scrollbar-color {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: transparent;
+}
+
+.container-time:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.container-time:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.container-time:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.container-time:nth-child(4) {
+  animation-delay: 3s;
+}
+
+.container-time:nth-child(5) {
+  animation-delay: 4s;
+}
+
+.container-time:nth-child(6) {
+  animation-delay: 5s;
+}
+
+.text-box {
+  padding: 20px 30px;
+  background: white;
+  position: relative;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.left-container-time {
+  left: 0;
+}
+.right-container-time {
+  left: 50%;
+}
+.container-time img {
+  width: 40px;
+  border-radius: 50%;
+  position: absolute;
+  right: -20px;
+  top: 32px;
+  z-index: 10;
+}
+
+.right-container-time img {
+  left: -20px;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 100%;
+  background: #0491fe;
+  top: 0;
+  left: 50%;
+  margin-left: -3px;
+  z-index: -1;
+  animation: moveline 6s linear forwards;
+
+}
+
+@keyframes moveline {
+  0% {
+      height: 0;
   }
-  @property --opacity-1 {
-    syntax: "<number>";
-    inherits: false;
-    initial-value: 0.1;
+
+  100% {
+      height: 100%;
   }
-  @property --opacity-2 {
-    syntax: "<number>";
-    inherits: false;
-    initial-value: 0.1;
+}
+
+.text-box h2 {
+  font-weight: 600;
+}
+
+.text-box small {
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.left-container-time-arrow {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 28px;
+  z-index: 1;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid rgb(255, 255, 255);
+  right: -15px;
+}
+
+.right-container-time-arrow {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 28px;
+  z-index: 1;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 15px solid rgb(255, 255, 255);
+  left: -15px;
+}
+
+
+@media screen and (max-width:600px) {
+  .timeline {
+      margin: 50px auto;
   }
-  @property --opacity-3 {
-    syntax: "<number>";
-    inherits: false;
-    initial-value: 0.1;
+
+  .timeline::after {
+      left: 31px
   }
-  @property --opacity-4 {
-    syntax: "<number>";
-    inherits: false;
-    initial-value: 0.1;
+
+  .container-time {
+      width: 100%;
+      padding-left: 80px;
+      padding-right: 25px;
   }
-  
-  @property --text-offset-1 {
-    syntax: "<number>";
-    inherits: false;
-    initial-value: 10;
+
+  .text-box {
+      font-size: 13px;
   }
-  @property --text-offset-2 {
-    syntax: "<number>";
-    inherits: false;
-    initial-value: 10;
+
+  .text-box small {
+      margin-bottom: 10px;
   }
-  @property --text-offset-3 {
-    syntax: "<number>";
-    inherits: false;
-    initial-value: 10;
+
+  .right-container-time {
+      left: 0;
   }
-  @property --text-offset-4 {
-    syntax: "<number>";
-    inherits: false;
-    initial-value: 10;
+
+  .container-time img {
+      left: 10px;
   }
-  .scrollbar {
-    width: 4px;
-    height: 100%;
-    background-color: var(--scrollbar-color);
-    background-image: radial-gradient(
-      circle at 0% var(--scroll-y-position),
-      rgb(112, 153, 255) 0%,
-      rgba(56, 106, 249, 0.79135) 10px,
-      rgba(10, 76, 242, 0.53) 20px,
-      rgba(255, 255, 255, 0) 40px,
-      rgba(49, 49, 49, 0) 100%
-    );
-    animation: on-scrolling both linear;
-    animation-timeline: scroll();
-    animation-range: 10vh;
+
+  .left-container-time-arrow,.right-container-time-arrow {
+      left: -15px;
+      border-right: 15px solid rgb(255, 255, 255);
+      border-left: 0 ;
   }
-  
-  .container-timeline {
-    width: 350px;
-    height: 100%;
-    background: linear-gradient(
-      132deg,
-      rgba(255, 255, 255, 0.09) 0%,
-      rgba(238, 238, 238, 0.03) 20%,
-      rgba(202, 202, 202, 0.04) 70%,
-      rgba(171, 171, 171, 0.02) 100%
-    );
-    border: solid rgba(255, 255, 255, 0.06) 1px;
-    margin-left: 15px;
-    position: relative;
-  }
-  .container-timeline::before,
-  .container-timeline::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      180deg,
-      rgba(10, 76, 242, 0) 0%,
-      rgba(10, 76, 242, 0.75203) 38.288288288288285%,
-      rgb(77, 127, 255) 50.9132179054054%,
-      rgba(10, 76, 242, 0.75248) 63.06306306306306%,
-      rgba(10, 76, 242, 0) 100%
-    );
-    background-repeat: no-repeat;
-    background-position-y: var(--reflection-y-position);
-    animation: on-scrolling both linear;
-    animation-timeline: scroll();
-    animation-range: 10vh;
-  }
-  .container-timeline::before {
-    background-size: 1px 150px;
-    filter: blur(1px);
-  }
-  .container-timeline::after {
-    background-size: 10px 150px;
-    filter: blur(10px);
-  }
-  
-  main {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40vh;
-    padding-bottom: 40vh;
-  }
-  
-  p {
-    background-image: linear-gradient(
-      270deg,
-      rgba(255, 255, 255, 0.4) 0%,
-      rgba(255, 255, 255, 0.9) 90%,
-      rgb(191, 209, 255) 100%
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    padding: 20px;
-    line-height: 1.5em;
-    --opacity-1: 0.1;
-    --opacity-2: 0.1;
-    --opacity-3: 0.1;
-    --opacity-4: 0.1;
-    --text-offset-1: 10;
-    --text-offset-2: 10;
-    --text-offset-3: 10;
-    --text-offset-4: 10;
-    animation: on-scrolling both linear;
-    animation-timeline: scroll();
-    animation-range: 10vh;
-  }
-  
-  p:nth-child(1) {
-    opacity: var(--opacity-1);
-    transform: translateY(calc(var(--text-offset-1) * 1px));
-  }
-  p:nth-child(2) {
-    opacity: var(--opacity-2);
-    transform: translateY(calc(var(--text-offset-2) * 1px));
-  }
-  p:nth-child(3) {
-    opacity: var(--opacity-3);
-    transform: translateY(calc(var(--text-offset-3) * 1px));
-  }
-  p:nth-child(4) {
-    opacity: var(--opacity-4);
-    transform: translateY(calc(var(--text-offset-4) * 1px));
-  }
-  
-  @keyframes on-scrolling {
-    0% {
-      --scroll-y-position: -10%;
-      --reflection-y-position: -22%;
-    }
-    1% {
-      --scrollbar-color: rgba(255, 255, 255, 0.1);
-    }
-    25% {
-      --opacity-1: 1;
-      --opacity-2: 0.1;
-      --opacity-3: 0.1;
-      --opacity-4: 0.1;
-  
-      --text-offset-1: 0;
-      --text-offset-2: 10;
-      --text-offset-3: 10;
-      --text-offset-4: 10;
-    }
-    50% {
-      --scroll-y-position: 50%;
-      --reflection-y-position: 50%;
-      --opacity-1: 0.1;
-      --opacity-2: 1;
-      --opacity-3: 0.1;
-      --opacity-4: 0.1;
-  
-      --text-offset-1: 10;
-      --text-offset-2: 0;
-      --text-offset-3: 10;
-      --text-offset-4: 10;
-    }
-    60% {
-      --opacity-1: 0.1;
-      --opacity-2: 0.1;
-      --opacity-3: 1;
-      --opacity-4: 0.1;
-  
-      --text-offset-1: 10;
-      --text-offset-2: 10;
-      --text-offset-3: 0;
-      --text-offset-4: 10;
-    }
-    90% {
-      --opacity-1: 0.1;
-      --opacity-2: 0.1;
-      --opacity-3: 0.1;
-      --opacity-4: 1;
-  
-      --text-offset-1: 10;
-      --text-offset-2: 10;
-      --text-offset-3: 10;
-      --text-offset-4: 0;
-    }
-    100% {
-      --text-offset-1: 10;
-      --text-offset-2: 10;
-      --text-offset-3: 10;
-      --text-offset-4: 10;
-      --opacity-1: 0.1;
-      --opacity-2: 0.1;
-      --opacity-3: 0.1;
-      --opacity-4: 0.1;
-      --scroll-y-position: 105%;
-      --reflection-y-position: 115%;
-      --scrollbar-color: rgba(255, 255, 255, 0.1);
-    }
-  }
-  
+}
