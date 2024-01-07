@@ -1,5 +1,4 @@
 /* ------------------------------------------- scroll bar---------------------------------------------------  */
-
 body {
     --sb-track-color: #000000;
     --sb-thumb-color: #01ffe0;
@@ -30,69 +29,8 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
-nav {
-    /* position: fixed;
-    top: 0; */
-    width: 100%;
-    display: flex;
-    justify-content: space-around; 
-    align-items: center;
-    min-height: 10vh;
-    background-color: #000000;
-    font-family: "Poppins", sans-serif;
-}
-.logo {
-    width: max-content;
-}
-.logo img{
-    width: 180px;
-}
-.nav-links {
-    display: flex;
-    justify-content: space-around;
-    width: fit-content;
-}
-.nav-links li {
-    list-style: none;
-    margin: 0 12px 0 18px;
-    color: black;
-}
-
-.nav-links a {
-    color: rgb(226, 226, 226);
-    text-decoration: none;
-    letter-spacing: 3px;
-    font-weight: bold;
-    font-size: 14px;
-    padding: 9px;
-    transition: .6s;
-    border-radius: 25px;
-}
-.nav-links a:hover{
-    color: black;
-    background-color: lightblue;
-}
-.burger {
-    display: none;
-}
-.burger div {
-    width: 25px;
-    height: 3px;
-    background-color: rgb(226, 226, 226);
-    margin: 5px;
-    transition: all 0.3s ease;
-}
-.toggle .line1 {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-.toggle .line2 {
-    opacity: 0;
-}
-.toggle .line3 {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
-nav img{
-    width: 130px;
+.logo_image a img{
+    width: 200px;
 }
 /* ------------------------------------ risponsiveness for navbar---------------------------------------------- */
 
